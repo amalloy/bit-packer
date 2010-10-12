@@ -1,0 +1,33 @@
+# bit-packer
+
+pack: Encode a number into a lazy sequence of digits in base N, with
+the most significant digits last
+
+unpack: Perform the reverse operation, decoding a sequence of base-N
+digits (most significant digits last) into a single number
+
+Neither of these functions deals with actual characters: in base 16,
+the value 10 is the integer '10'. If you want to output in some
+particular format, that is left to you; this simply does the mod-N
+arithmetic for you.
+
+## Usage
+
+bit-packer.core> (pprint (map #(pack 100 %) (take 15 (drop 2 (range)))))
+((0 0 1 0 0 1 1)
+ (1 0 2 0 1)
+ (0 1 2 1)
+ (0 0 4)
+ (4 4 2)
+ (2 0 2)
+ (4 4 1)
+ (1 2 1)
+ (0 0 1)
+ (1 9)
+ (4 8)
+ (9 7)
+ (2 7)
+ (10 6)
+ (4 6))
+
+Distributed under the Eclipse Public License, the same as Clojure.
