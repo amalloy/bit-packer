@@ -23,8 +23,8 @@
 
 (defn unpack
   [[& nums] base]
-  {:pre [(pos-ints? nums)]}
-  {:post [(pos-int? %)]}
+  {:pre [(pos-ints? nums)]
+   :post [(pos-int? %)]}
   (reduce + (map *
                  nums
                  (iterate #(* base %) 1))))
